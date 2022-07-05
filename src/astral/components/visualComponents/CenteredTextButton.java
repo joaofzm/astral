@@ -12,7 +12,7 @@ import astral.config.Config;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class TextButton implements Component, MouseListener {
+public class CenteredTextButton implements Component, MouseListener {
 	
 	private int red;
 	private int green;
@@ -28,7 +28,7 @@ public class TextButton implements Component, MouseListener {
 		return jButton;
 	}
 	
-	public TextButton(double x, double y, double xSize, double ySize, String text, int fontSize,
+	public CenteredTextButton(double y, double xSize, double ySize, String text, int fontSize,
 			int red, int green, int blue, int hoverRed, int hoverGreen, int hoverBlue) {
 		
 		this.red = red;
@@ -41,7 +41,8 @@ public class TextButton implements Component, MouseListener {
 		jButton = new JButton();
 		jButton.addMouseListener(this);
 		
-		jButton.setBounds((int) (x * Config.multiplier), (int) (y * Config.multiplier),
+		
+		jButton.setBounds((int) (((1920 - xSize) / 2) * Config.multiplier), (int) (y * Config.multiplier),
 				(int) (xSize * Config.multiplier), (int) (ySize * Config.multiplier));
 		
 		jButton.setContentAreaFilled(false);

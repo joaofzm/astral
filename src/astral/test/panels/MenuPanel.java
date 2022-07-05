@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import astral.components.visualComponents.CenteredTextButton;
 import astral.components.visualComponents.Label;
 import astral.components.visualComponents.Panel;
 import astral.components.visualComponents.TextButton;
@@ -24,7 +25,8 @@ public class MenuPanel implements ActionListener {
 	private JLabel bg;
 	
 	private TextButton exitButton;
-
+	
+	private CenteredTextButton anotherButton;
 
 	private JFrame frame;
 	
@@ -34,9 +36,13 @@ public class MenuPanel implements ActionListener {
 
 		panel = new Panel(1920,1080);
 		
-		exitButton = new TextButton(892, 850, 136, 70,62, "Exit",255,255,255);
+		exitButton = new TextButton(892, 850, 136, 62,"Exit",62, 255,255,255,0,0,0);
 		exitButton.getJComponent().addActionListener(this);
 		panel.add(exitButton);
+		
+		anotherButton = new CenteredTextButton(250, 60, 62,"Ot",62, 255,255,255,0,0,0);
+		anotherButton.getJComponent().addActionListener(this);
+		panel.add(anotherButton);
 		
 		bg = new JLabel();
 		
