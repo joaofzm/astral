@@ -46,4 +46,24 @@ public class Frame {
 
 		jFrame.getContentPane().setBackground(Color.black);
 	}
+	
+	public Frame() {
+		jFrame = new JFrame();
+		if (Config.res == 1) {
+			jFrame.setContentPane(new JLabel(new ImageIcon(getClass().getClassLoader().getResource("Backgrounds/bg1920x1080.png"))));
+		} else if (Config.res == 2) {
+			jFrame.setContentPane(new JLabel(new ImageIcon(getClass().getClassLoader().getResource("Backgrounds/bg1280x720.png"))));
+		}
+
+		jFrame.setSize(Config.x, Config.y);
+		jFrame.setMinimumSize(new Dimension(Config.x, Config.y));
+		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jFrame.setUndecorated(Config.borderless);
+		jFrame.setVisible(true);
+		jFrame.setResizable(false);
+		jFrame.pack();
+		jFrame.setVisible(true);
+
+		jFrame.getContentPane().setBackground(Color.black);
+	}
 }
