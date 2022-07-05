@@ -153,8 +153,9 @@ public class Launcher extends JFrame implements ActionListener {
 					Config.borderless=borderlessCheck.isSelected();
 					
 					jFrame.dispose();
+					
 					Config.setMultiplier();
-					Frame frame = new Frame();
+					Frame frame = new Frame("Window Title", "windowIcon.jpg");
 					MenuPanel initialPanel = new MenuPanel(frame.getJFrame());
 					frame.getJFrame().getContentPane().removeAll();
 					frame.getJFrame().getContentPane().add(initialPanel.getPanel().getJComponent());

@@ -17,7 +17,7 @@ public class Frame {
 		return jFrame;
 	}
 
-	public Frame(String windowIconUrl, String windowTitle) {
+	public Frame(String windowTitle, String windowIconUrl) {
 		jFrame = new JFrame();
 
 		/*
@@ -47,7 +47,7 @@ public class Frame {
 		jFrame.getContentPane().setBackground(Color.black);
 	}
 	
-	public Frame() {
+	public Frame(String windowTitle) {
 		jFrame = new JFrame();
 		if (Config.res == 1) {
 			jFrame.setContentPane(new JLabel(new ImageIcon(getClass().getClassLoader().getResource("Backgrounds/bg1920x1080.png"))));
@@ -61,6 +61,7 @@ public class Frame {
 		jFrame.setUndecorated(Config.borderless);
 		jFrame.setVisible(true);
 		jFrame.setResizable(false);
+		jFrame.setTitle(windowTitle);
 		jFrame.pack();
 		jFrame.setVisible(true);
 
