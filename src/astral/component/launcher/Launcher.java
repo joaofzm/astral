@@ -31,15 +31,15 @@ public class Launcher extends JFrame implements ActionListener {
 	private JCheckBox res1280;
 	private JCheckBox res1920;
 
-	public Launcher() {
+	public Launcher(String title) {
 
 		jFrame = new JFrame();
-//		jFrame.setContentPane(new JLabel(new ImageIcon(getClass().getClassLoader().getResource("Backgrounds/launcherbg.png"))));
+		jFrame.setContentPane(new JLabel(new ImageIcon(getClass().getClassLoader().getResource("Backgrounds/launcherbg.png"))));
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jFrame.setLayout(null);
-//		ImageIcon windowIcon = new ImageIcon(getClass().getClassLoader().getResource("windowIcon.jpg"));
-//		jFrame.setIconImage(windowIcon.getImage());
-		jFrame.setTitle("Into the Vrains - Launcher");
+		ImageIcon windowIcon = new ImageIcon(getClass().getClassLoader().getResource("windowIcon.jpg"));
+		jFrame.setIconImage(windowIcon.getImage());
+		jFrame.setTitle(title);
 		jFrame.setResizable(true);
 		jFrame.setSize(896, 504);
 		jFrame.setLocationRelativeTo(null);
@@ -114,7 +114,7 @@ public class Launcher extends JFrame implements ActionListener {
 		borderlessCheck.setForeground(Color.white);
 		jFrame.add(borderlessCheck);
 
-//		jFrame.pack();
+		jFrame.pack();
 		jFrame.setVisible(true);
 
 	}

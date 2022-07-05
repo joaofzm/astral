@@ -2,22 +2,21 @@ package astral.components.visualComponents;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 
 import astral.component.Component;
 import astral.config.Config;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 public class TextButton implements Component, MouseListener {
 	
 	private JButton jButton;
-
 	@Override
-	public JComponent getJComponent() {
+	public JButton getJComponent() {
 		return jButton;
 	}
 	
@@ -44,7 +43,17 @@ public class TextButton implements Component, MouseListener {
 	public void setVisible(boolean value) {
 		getJComponent().setVisible(value);
 	}
+	
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		jButton.setForeground(new Color(0,80,255));
+	}
 
+	@Override
+	public void mouseExited(MouseEvent e) {
+		jButton.setForeground(Color.WHITE);
+	}
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		
@@ -60,14 +69,4 @@ public class TextButton implements Component, MouseListener {
 		
 	}
 
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		
-	}
-	
 }
