@@ -22,12 +22,7 @@ public class Frame {
 	public Frame(String windowTitle, String windowIconUrl, Page page) {
 		jFrame = new JFrame();
 
-		String bgUrl = page.getBgUrl();
-		if (Config.res == 1) {
-			jFrame.setContentPane(new JLabel(new ImageIcon(getClass().getClassLoader().getResource(bgUrl))));
-		} else if (Config.res == 2) {
-			jFrame.setContentPane(new JLabel(Resizer.resize(bgUrl, 1280, 720)));
-		}
+		jFrame.setContentPane(new JLabel(Resizer.resize(page.getBgUrl(), Config.x, Config.y)));
 
 		jFrame.setSize(Config.x, Config.y);
 		jFrame.setMinimumSize(new Dimension(Config.x, Config.y));

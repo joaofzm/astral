@@ -39,18 +39,10 @@ public class TestPage2 extends Page {
 		getPanel().add(page1Button,this);
 		
 		
-		ImageIcon icon = null;
-		if (Config.res == 1) {
-			icon = new ImageIcon(getClass().getClassLoader().getResource(getBgUrl()));
-			getBg().setSize(1920,1080);
-		} else if (Config.res==2) {
-			icon = Resizer.resize(getBgUrl(), 1280, 720);
-			getBg().setSize(1280,720);
-		}
-		getBg().setIcon(icon);
-		
+		getBg().setIcon(Resizer.resize(getBgUrl(), Config.x, Config.y));
+		getBg().setSize(Config.x,Config.y);
 		getPanel().getJComponent().add(getBg());
-
+		
 	}
 
 	@Override
