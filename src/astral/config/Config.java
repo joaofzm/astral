@@ -15,6 +15,7 @@ public class Config {
 	public static int x;
 	public static int y;
 	public static double multiplier;
+	//-------------------------------------------------
 	
 	public static void setMultiplier() {
 		if (res==1) {

@@ -8,16 +8,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import astral.config.Config;
+import astral.test.panels.TestPage1;
 
 public class Frame {
 
 	private JFrame jFrame;
-	
 	public JFrame getJFrame() {
 		return jFrame;
 	}
 
-	public Frame(String windowTitle, String windowIconUrl) {
+	public Frame(String windowTitle, String windowIconUrl, Page page) {
 		jFrame = new JFrame();
 
 		/*
@@ -45,26 +45,21 @@ public class Frame {
 		jFrame.setVisible(true);
 
 		jFrame.getContentPane().setBackground(Color.black);
+		
+		jFrame.getContentPane().removeAll();
+		jFrame.getContentPane().add(page.getPanel().getJComponent());
+		jFrame.revalidate();
+		page.setFrame(this);
+		page.getPanel().getJComponent().repaint();
+
 	}
 	
-	public Frame(String windowTitle) {
-		jFrame = new JFrame();
-		if (Config.res == 1) {
-			jFrame.setContentPane(new JLabel(new ImageIcon(getClass().getClassLoader().getResource("Backgrounds/bg1920x1080.png"))));
-		} else if (Config.res == 2) {
-			jFrame.setContentPane(new JLabel(new ImageIcon(getClass().getClassLoader().getResource("Backgrounds/bg1280x720.png"))));
-		}
-
-		jFrame.setSize(Config.x, Config.y);
-		jFrame.setMinimumSize(new Dimension(Config.x, Config.y));
-		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		jFrame.setUndecorated(Config.borderless);
-		jFrame.setVisible(true);
-		jFrame.setResizable(false);
-		jFrame.setTitle(windowTitle);
-		jFrame.pack();
-		jFrame.setVisible(true);
-
-		jFrame.getContentPane().setBackground(Color.black);
+	public void switchPage(Page page) {
+		jFrame.getContentPane().removeAll();
+		jFrame.getContentPane().add(page.getPanel().getJComponent());
+		jFrame.revalidate();
+		page.setFrame(this);
+		page.getPanel().getJComponent().repaint();
 	}
+
 }

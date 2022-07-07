@@ -1,4 +1,4 @@
-package astral.component;
+package astral.component.interfaces;
 
 import javax.swing.JComponent;
 

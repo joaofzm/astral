@@ -3,9 +3,8 @@ package astral.components.visualComponents;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import astral.component.Component;
+import astral.component.interfaces.Component;
 import astral.config.Config;
-import astral.test.panels.MenuPanel;
 
 
 public class Panel implements Component {
@@ -25,12 +24,12 @@ public class Panel implements Component {
 		panel.add(c.getJComponent());
 	}
 	
-	public void add(TextButton c, MenuPanel p) {
+	public void add(TextButton c, Page p) {
 		panel.add(c.getJComponent());
 		c.getJComponent().addActionListener(p);
 	}
 	
-	public void add(CenteredTextButton c, MenuPanel p) {
+	public void add(CenteredTextButton c, Page p) {
 		panel.add(c.getJComponent());
 		c.getJComponent().addActionListener(p);
 	}

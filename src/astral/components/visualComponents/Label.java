@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import astral.component.Component;
+import astral.component.interfaces.Component;
 import astral.config.Config;
 
 public class Label implements Component {

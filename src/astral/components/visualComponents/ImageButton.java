@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 
-import astral.component.Component;
+import astral.component.interfaces.Component;
 import astral.config.Config;
 
 public class ImageButton implements Component, MouseListener {
