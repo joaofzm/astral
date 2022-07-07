@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 
 import astral.config.Config;
 import astral.test.panels.TestPage1;
+import astral.util.Resizer;
 
 public class Frame {
 
@@ -25,11 +26,7 @@ public class Frame {
 		if (Config.res == 1) {
 			jFrame.setContentPane(new JLabel(new ImageIcon(getClass().getClassLoader().getResource(bgUrl))));
 		} else if (Config.res == 2) {
-			ImageIcon originalIcon = new ImageIcon(getClass().getClassLoader().getResource(bgUrl)); 
-			Image originalImage = originalIcon.getImage();
-			Image resizedImage = originalImage.getScaledInstance(1280,720,java.awt.Image.SCALE_SMOOTH); 
-			ImageIcon resizedImageIcon = new ImageIcon(resizedImage);
-			jFrame.setContentPane(new JLabel(resizedImageIcon));
+			jFrame.setContentPane(new JLabel(Resizer.resize(bgUrl, 1280, 720)));
 		}
 
 		jFrame.setSize(Config.x, Config.y);

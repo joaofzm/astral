@@ -12,6 +12,7 @@ import astral.components.visualComponents.Frame;
 import astral.components.visualComponents.Page;
 import astral.components.visualComponents.Panel;
 import astral.config.Config;
+import astral.util.Resizer;
 
 
 public class TestPage2 extends Page {
@@ -43,10 +44,7 @@ public class TestPage2 extends Page {
 			icon = new ImageIcon(getClass().getClassLoader().getResource(getBgUrl()));
 			getBg().setSize(1920,1080);
 		} else if (Config.res==2) {
-			ImageIcon originalIcon = new ImageIcon(getClass().getClassLoader().getResource(getBgUrl())); 
-			Image originalImage = originalIcon.getImage();
-			Image resizedImage = originalImage.getScaledInstance(1280,720,java.awt.Image.SCALE_SMOOTH); 
-			icon = new ImageIcon(resizedImage);
+			icon = Resizer.resize(getBgUrl(), 1280, 720);
 			getBg().setSize(1280,720);
 		}
 		getBg().setIcon(icon);
