@@ -5,17 +5,20 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 
-public class Page implements ActionListener {
+public abstract class Page implements ActionListener {
 
 	private Panel panel;
 	
 	private JLabel bg;
+	
+	private String bgUrl;
 
 	private Frame frame;
 	
-	public Page() {
+	public Page(String bgUrl) {
 		panel = new Panel(1920,1080);
 		bg = new JLabel();
+		this.bgUrl = bgUrl; 
 	}
 
 	public Panel getPanel() {
@@ -42,6 +45,14 @@ public class Page implements ActionListener {
 		this.frame = frame;
 	}
 
+	public String getBgUrl() {
+		return bgUrl;
+	}
+
+	public void setBgUrl(String bgUrl) {
+		this.bgUrl = bgUrl;
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		

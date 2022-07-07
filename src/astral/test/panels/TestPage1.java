@@ -1,5 +1,6 @@
 package astral.test.panels;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,7 +23,7 @@ public class TestPage1 extends Page {
 	private CenteredTextButton page2Button;
 	
 	public TestPage1() {
-		super();
+		super("Backgrounds/bg1920x1080.png");
 		
 		exitButton = new CenteredTextButton(850, 100, 62,"Exit",62, 255,255,255,0,0,0);
 		getPanel().add(exitButton,this);
@@ -39,14 +40,16 @@ public class TestPage1 extends Page {
 		
 		ImageIcon icon = null;
 		if (Config.res == 1) {
-			icon = new ImageIcon(getClass().getClassLoader().getResource("Backgrounds/bg1920x1080.png"));
+			icon = new ImageIcon(getClass().getClassLoader().getResource(getBgUrl()));
 			getBg().setSize(1920,1080);
 		} else if (Config.res==2) {
-			icon = new ImageIcon(getClass().getClassLoader().getResource("Backgrounds/bg1280x720.png"));
+			ImageIcon originalIcon = new ImageIcon(getClass().getClassLoader().getResource(getBgUrl())); 
+			Image originalImage = originalIcon.getImage();
+			Image resizedImage = originalImage.getScaledInstance(1280,720,java.awt.Image.SCALE_SMOOTH); 
+			icon = new ImageIcon(resizedImage);
 			getBg().setSize(1280,720);
 		}
 		getBg().setIcon(icon);
-		
 		getPanel().getJComponent().add(getBg());
 
 	}
