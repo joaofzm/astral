@@ -7,7 +7,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 import astral.component.interfaces.Component;
-import astral.config.Config;
+import astral.config.AstralConfig;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -41,14 +41,14 @@ public class TextButton implements Component, MouseListener {
 		jButton = new JButton();
 		jButton.addMouseListener(this);
 		
-		jButton.setBounds((int) (x * Config.multiplier), (int) (y * Config.multiplier),
-				(int) (xSize * Config.multiplier), (int) (ySize * Config.multiplier));
+		jButton.setBounds((int) (x * AstralConfig.multiplier), (int) (y * AstralConfig.multiplier),
+				(int) (xSize * AstralConfig.multiplier), (int) (ySize * AstralConfig.multiplier));
 		
 		jButton.setContentAreaFilled(false);
 		
 		jButton.setText(text);
 		jButton.setForeground(new Color(red, green, blue));
-		jButton.setFont(new Font("Impact", Font.PLAIN, (int) (fontSize * Config.multiplier)));
+		jButton.setFont(new Font("Impact", Font.PLAIN, (int) (fontSize * AstralConfig.multiplier)));
 		jButton.setFocusable(false);
 	
 		jButton.setBorder(BorderFactory.createLineBorder(Color.white));

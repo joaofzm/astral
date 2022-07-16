@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import astral.component.interfaces.Component;
-import astral.config.Config;
+import astral.config.AstralConfig;
 
 public class Label implements Component {
 
@@ -24,22 +24,22 @@ public class Label implements Component {
 		
 		ImageIcon originalIcon = new ImageIcon(getClass().getClassLoader().getResource(imageURL)); 
 		Image originalImage = originalIcon.getImage();
-		Image resizedImage = originalImage.getScaledInstance((int)(xSize*Config.multiplier),(int) (ySize*Config.multiplier),  java.awt.Image.SCALE_SMOOTH); 
+		Image resizedImage = originalImage.getScaledInstance((int)(xSize*AstralConfig.multiplier),(int) (ySize*AstralConfig.multiplier),  java.awt.Image.SCALE_SMOOTH); 
 		ImageIcon icon = new ImageIcon(resizedImage);
 	
 		jLabel.setIcon(icon);
-		jLabel.setBounds((int) (x * Config.multiplier), (int) (y * Config.multiplier), (int) (xSize * Config.multiplier),
-				(int) (ySize * Config.multiplier));
+		jLabel.setBounds((int) (x * AstralConfig.multiplier), (int) (y * AstralConfig.multiplier), (int) (xSize * AstralConfig.multiplier),
+				(int) (ySize * AstralConfig.multiplier));
 	}
 
 	public Label(double x, double y, double xSize, double ySize, String text, int fontSize, int red, int green, int blue) {
 		jLabel = new JLabel();
-		jLabel.setBounds((int) (x * Config.multiplier), (int) (y * Config.multiplier), (int) (xSize * Config.multiplier),
-				(int) (ySize * Config.multiplier));
+		jLabel.setBounds((int) (x * AstralConfig.multiplier), (int) (y * AstralConfig.multiplier), (int) (xSize * AstralConfig.multiplier),
+				(int) (ySize * AstralConfig.multiplier));
 		jLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		jLabel.setVerticalAlignment(SwingConstants.CENTER);
 		jLabel.setText(text);
-		jLabel.setFont(new Font("Impact", Font.PLAIN, (int) (fontSize * Config.multiplier)));
+		jLabel.setFont(new Font("Impact", Font.PLAIN, (int) (fontSize * AstralConfig.multiplier)));
 		jLabel.setForeground(new Color(red,green,blue));
 		
 //		label.setBorder(BorderFactory.createLineBorder(Color.BLUE, 5));

@@ -4,7 +4,7 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import astral.component.interfaces.Component;
-import astral.config.Config;
+import astral.config.AstralConfig;
 
 
 public class Panel implements Component {
@@ -16,7 +16,7 @@ public class Panel implements Component {
 
 	public Panel(int x, int y) {
 		panel = new JPanel();
-		panel.setSize((int)(x*Config.multiplier),(int)(y*Config.multiplier));
+		panel.setSize((int)(x*AstralConfig.multiplier),(int)(y*AstralConfig.multiplier));
 		panel.setLayout(null);
 	}
 	
@@ -28,6 +28,11 @@ public class Panel implements Component {
 		panel.add(c.getJComponent());
 		c.getJComponent().addActionListener(p);
 	}
+	
+//	public void add(ImageButton c, Page p) {
+//		panel.add(c.getJComponent());
+//		c.getJComponent().addActionListener(p);
+//	}
 	
 	public void add(CenteredTextButton c, Page p) {
 		panel.add(c.getJComponent());

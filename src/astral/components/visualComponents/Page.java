@@ -5,20 +5,33 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 
+import astral.config.AstralConfig;
+import astral.util.Resizer;
+
 public abstract class Page implements ActionListener {
 
 	private Panel panel;
-	
+
 	private JLabel bg;
-	
+
 	private String bgUrl;
 
 	private Frame frame;
-	
+
 	public Page(String bgUrl) {
-		panel = new Panel(1920,1080);
+
+		panel = new Panel(1920, 1080);
 		bg = new JLabel();
-		this.bgUrl = bgUrl; 
+
+		this.bgUrl = bgUrl;
+
+		bg.setIcon(Resizer.resize(bgUrl, AstralConfig.x, AstralConfig.y));
+		bg.setSize(AstralConfig.x, AstralConfig.y);
+
+	}
+	
+	public void addBackground() {
+		panel.getJComponent().add(bg);
 	}
 
 	public Panel getPanel() {
@@ -52,11 +65,10 @@ public abstract class Page implements ActionListener {
 	public void setBgUrl(String bgUrl) {
 		this.bgUrl = bgUrl;
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
 	}
-	
 
 }

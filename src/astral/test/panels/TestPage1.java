@@ -1,18 +1,11 @@
 package astral.test.panels;
 
-import java.awt.Image;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 import astral.components.visualComponents.CenteredTextButton;
 import astral.components.visualComponents.Frame;
 import astral.components.visualComponents.Page;
-import astral.components.visualComponents.Panel;
-import astral.config.Config;
-import astral.util.Resizer;
+import astral.config.AstralConfig;
 
 
 public class TestPage1 extends Page {
@@ -24,7 +17,8 @@ public class TestPage1 extends Page {
 	private CenteredTextButton page2Button;
 	
 	public TestPage1() {
-		super("Backgrounds/bg1920x1080.png");
+
+		super("astralBg1920x1080.png");
 		
 		exitButton = new CenteredTextButton(850, 100, 62,"Exit",62, 255,255,255,0,0,0);
 		getPanel().add(exitButton,this);
@@ -38,27 +32,21 @@ public class TestPage1 extends Page {
 		page2Button = new CenteredTextButton(450, 180, 62,"PAGE 2",62, 255,255,255,0,0,0);
 		getPanel().add(page2Button,this);
 		
-		
-		getBg().setIcon(Resizer.resize(getBgUrl(), Config.x, Config.y));
-		getBg().setSize(Config.x,Config.y);
-		getPanel().getJComponent().add(getBg());
-
+		addBackground();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getSource() == res1Button.getJComponent()) {
-			Config.res=1;
-			Config.setMultiplier();
+			AstralConfig.setConfig(1, AstralConfig.borderless);
 			getFrame().getJFrame().dispose();
 			TestPage1 initialPanel = new TestPage1();
 			Frame frame = new Frame("Window Title", "windowIcon.jpg", initialPanel);
 		}
 		
 		if (e.getSource() == res2Button.getJComponent()) {
-			Config.res=2;
-			Config.setMultiplier();
+			AstralConfig.setConfig(2, AstralConfig.borderless);
 			getFrame().getJFrame().dispose();
 			TestPage1 initialPanel = new TestPage1();
 			Frame frame = new Frame("Window Title", "windowIcon.jpg", initialPanel);
