@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 
-import astral.config.AstralConfig;
 import astral.util.Resizer;
 
 public abstract class Page implements ActionListener {
@@ -25,8 +24,8 @@ public abstract class Page implements ActionListener {
 
 		this.bgUrl = bgUrl;
 
-		bg.setIcon(Resizer.resize(bgUrl, AstralConfig.x, AstralConfig.y));
-		bg.setSize(AstralConfig.x, AstralConfig.y);
+		bg.setIcon(Resizer.resize(bgUrl, Frame.x, Frame.y));
+		bg.setSize(Frame.x, Frame.y);
 
 	}
 	

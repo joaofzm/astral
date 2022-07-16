@@ -1,17 +1,14 @@
 package astral.components.visualComponents;
 
 import java.awt.Color;
-import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 
 import astral.component.interfaces.Component;
-import astral.config.AstralConfig;
 import astral.util.Resizer;
 
 public class ImageButton implements Component, MouseListener {
@@ -26,12 +23,12 @@ public class ImageButton implements Component, MouseListener {
 		jButton = new JButton();
 		jButton.addMouseListener(this);
 		
-		jButton.setBounds((int) (x * AstralConfig.multiplier), (int) (y * AstralConfig.multiplier),
-				(int) (xSize * AstralConfig.multiplier), (int) (ySize * AstralConfig.multiplier));
+		jButton.setBounds((int) (x * Frame.multiplier), (int) (y * Frame.multiplier),
+				(int) (xSize * Frame.multiplier), (int) (ySize * Frame.multiplier));
 		
 		jButton.setContentAreaFilled(false);
 
-		jButton.setIcon(Resizer.resize(imageURL, (int) (xSize * AstralConfig.multiplier), (int) (ySize * AstralConfig.multiplier)));
+		jButton.setIcon(Resizer.resize(imageURL, (int) (xSize * Frame.multiplier), (int) (ySize * Frame.multiplier)));
 
 		jButton.setBorderPainted(false);
 		jButton.setBorder(BorderFactory.createLineBorder(Color.red,6));

@@ -7,12 +7,38 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import astral.config.AstralConfig;
 import astral.util.Resizer;
 
 public class Frame {
+	
+	//-------------------------------------------------------------------------------------
+	public static int res = 1;
+	public static boolean borderless = true;
+	
+	public static int x = 1920;
+	public static int y = 1080;
+	public static double multiplier = 1;
+	
+	public static void setConfig(int res, boolean border) {
+		borderless = border;
+		if (res==1) {
+			multiplier=1;
+			x=1920;
+			y=1080;
+		} else if (res==2) {
+			multiplier=0.933333335;
+			x=1792;
+			y=1008;
+		} else if (res==3) {
+			multiplier=0.666666666666666666666666;
+			x=1280;
+			y=720;
+		}
+	}
+	//-------------------------------------------------------------------------------------
 
 	private JFrame jFrame;
+	
 	public JFrame getJFrame() {
 		return jFrame;
 	}
@@ -20,12 +46,12 @@ public class Frame {
 	public Frame(String windowTitle, String windowIconUrl, Page page) {
 		jFrame = new JFrame();
 
-		jFrame.setContentPane(new JLabel(Resizer.resize(page.getBgUrl(), AstralConfig.x, AstralConfig.y)));
+		jFrame.setContentPane(new JLabel(Resizer.resize(page.getBgUrl(), Frame.x, Frame.y)));
 
-		jFrame.setSize(AstralConfig.x, AstralConfig.y);
-		jFrame.setMinimumSize(new Dimension(AstralConfig.x, AstralConfig.y));
+		jFrame.setSize(Frame.x, Frame.y);
+		jFrame.setMinimumSize(new Dimension(Frame.x, Frame.y));
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		jFrame.setUndecorated(AstralConfig.borderless);
+		jFrame.setUndecorated(Frame.borderless);
 		jFrame.setVisible(true);
 		ImageIcon windowIcon = new ImageIcon(getClass().getClassLoader().getResource(windowIconUrl));
 		jFrame.setIconImage(windowIcon.getImage());

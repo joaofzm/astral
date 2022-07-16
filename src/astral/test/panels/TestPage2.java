@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import astral.components.visualComponents.CenteredTextButton;
 import astral.components.visualComponents.Frame;
 import astral.components.visualComponents.Page;
-import astral.config.AstralConfig;
 
 
 public class TestPage2 extends Page {
