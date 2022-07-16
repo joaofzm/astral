@@ -10,7 +10,7 @@ public class Main {
 		Frame.setConfig(2, false);
 		
 		TestPage2 initialPanel = new TestPage2();
-		Frame frame = new Frame("Window Title", "whatever.jpg", initialPanel);
+		Frame frame = new Frame("Window Title", "revolver.png", initialPanel);
 		
 	}
 

@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -31,7 +32,8 @@ public class Label implements Component {
 				(int) (ySize * Frame.multiplier));
 	}
 
-	public Label(double x, double y, double xSize, double ySize, String text, int fontSize, int red, int green, int blue) {
+	public Label(double x, double y, double xSize, double ySize, String text, int fontSize,
+			int red, int green, int blue, boolean border) {
 		jLabel = new JLabel();
 		jLabel.setBounds((int) (x * Frame.multiplier), (int) (y * Frame.multiplier), (int) (xSize * Frame.multiplier),
 				(int) (ySize * Frame.multiplier));
@@ -41,7 +43,10 @@ public class Label implements Component {
 		jLabel.setFont(new Font("Impact", Font.PLAIN, (int) (fontSize * Frame.multiplier)));
 		jLabel.setForeground(new Color(red,green,blue));
 		
-//		label.setBorder(BorderFactory.createLineBorder(Color.BLUE, 5));
+		if(border) {
+			jLabel.setBorder(BorderFactory.createLineBorder(Color.white));
+		}
+
 	}
 
 	public void setVisible(boolean value) {
