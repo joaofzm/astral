@@ -1,5 +1,6 @@
 package astral.components.visualComponents;
 
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
@@ -28,10 +29,10 @@ public class Panel implements Component {
 		c.getJComponent().addActionListener(p);
 	}
 	
-//	public void add(ImageButton c, Page p) {
-//		panel.add(c.getJComponent());
-//		c.getJComponent().addActionListener(p);
-//	}
+	public void add(ImageButton c, Page p) {
+		panel.add(c.getJComponent());
+		c.getJComponent().addActionListener(p);
+	}
 	
 	public void add(CenteredTextButton c, Page p) {
 		panel.add(c.getJComponent());

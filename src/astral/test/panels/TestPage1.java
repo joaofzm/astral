@@ -20,16 +20,16 @@ public class TestPage1 extends Page {
 
 		super("astralBg1920x1080.png");
 
-		exitButton = new CenteredTextButton(850, 100, 62, "Exit", 62, 255, 255, 255, 0, 0, 0);
+		exitButton = new CenteredTextButton(850, 100, 62, "Exit", 62, 255, 255, 255, 0, 0, 0, true);
 		getPanel().add(exitButton, this);
 
-		res1Button = new CenteredTextButton(250, 140, 62, "RES 1", 62, 255, 255, 255, 0, 0, 0);
+		res1Button = new CenteredTextButton(250, 140, 62, "RES 1", 62, 255, 255, 255, 0, 0, 0, true);
 		getPanel().add(res1Button, this);
 
-		res2Button = new CenteredTextButton(350, 140, 62, "RES 2", 62, 255, 255, 255, 0, 0, 0);
+		res2Button = new CenteredTextButton(350, 140, 62, "RES 2", 62, 255, 255, 255, 0, 0, 0, false);
 		getPanel().add(res2Button, this);
 
-		page2Button = new CenteredTextButton(450, 180, 62, "PAGE 2", 62, 255, 255, 255, 0, 0, 0);
+		page2Button = new CenteredTextButton(450, 180, 62, "PAGE 2", 62, 255, 255, 255, 0, 0, 0, true);
 		getPanel().add(page2Button, this);
 
 		addBackground();

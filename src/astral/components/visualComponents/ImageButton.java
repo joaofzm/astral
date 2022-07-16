@@ -5,8 +5,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 
 import astral.component.interfaces.Component;
 import astral.util.Resizer;
@@ -15,11 +15,26 @@ public class ImageButton implements Component, MouseListener {
 	
 	private JButton jButton;
 	@Override
-	public JComponent getJComponent() {
+	public JButton getJComponent() {
 		return jButton;
 	}
 	
-	public ImageButton(double x, double y, double xSize, double ySize, String imageURL) {
+	private double xSize;
+	private double ySize;
+	
+	private ImageIcon defaultImageIcon;
+	private ImageIcon hoverImageIcon;
+	
+	
+	
+	public ImageButton(double x, double y, double xSize, double ySize, boolean border,
+			String defaultImageURL, String hoverImageURL) {
+		
+		this.xSize=xSize;
+		this.ySize=ySize;
+		defaultImageIcon=Resizer.resize(defaultImageURL, (int) (xSize * Frame.multiplier), (int) (ySize * Frame.multiplier));
+		hoverImageIcon=Resizer.resize(hoverImageURL, (int) (xSize * Frame.multiplier), (int) (ySize * Frame.multiplier));
+		
 		jButton = new JButton();
 		jButton.addMouseListener(this);
 		
@@ -28,16 +43,26 @@ public class ImageButton implements Component, MouseListener {
 		
 		jButton.setContentAreaFilled(false);
 
-		jButton.setIcon(Resizer.resize(imageURL, (int) (xSize * Frame.multiplier), (int) (ySize * Frame.multiplier)));
-
-		jButton.setBorderPainted(false);
-		jButton.setBorder(BorderFactory.createLineBorder(Color.red,6));
+		jButton.setIcon(Resizer.resize(defaultImageURL, (int) (xSize * Frame.multiplier), (int) (ySize * Frame.multiplier)));
 		jButton.setFocusable(false);
+
+		jButton.setBorder(BorderFactory.createLineBorder(Color.white));
+		jButton.setBorderPainted(border);
 	}
 
 	
 	public void setVisible(boolean value) {
 		getJComponent().setVisible(value);
+	}
+	
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		jButton.setIcon(hoverImageIcon);
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		jButton.setIcon(defaultImageIcon);
 	}
 
 	@Override
@@ -55,14 +80,4 @@ public class ImageButton implements Component, MouseListener {
 		
 	}
 
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		
-	}
-	
 }

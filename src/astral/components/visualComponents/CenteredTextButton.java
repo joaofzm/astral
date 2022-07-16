@@ -28,7 +28,7 @@ public class CenteredTextButton implements Component, MouseListener {
 	}
 	
 	public CenteredTextButton(double y, double xSize, double ySize, String text, int fontSize,
-			int red, int green, int blue, int hoverRed, int hoverGreen, int hoverBlue) {
+			int red, int green, int blue, int hoverRed, int hoverGreen, int hoverBlue, boolean border) {
 		
 		this.red = red;
 		this.green = green;
@@ -52,7 +52,7 @@ public class CenteredTextButton implements Component, MouseListener {
 		jButton.setFocusable(false);
 	
 		jButton.setBorder(BorderFactory.createLineBorder(Color.white));
-		jButton.setBorderPainted(true);
+		jButton.setBorderPainted(border);
 		
 
 	}

@@ -1,7 +1,7 @@
 package astral.test.Main;
 
 import astral.components.visualComponents.Frame;
-import astral.test.panels.TestPage1;
+import astral.test.panels.TestPage2;
 
 public class Main {
 
@@ -9,7 +9,7 @@ public class Main {
 		
 		Frame.setConfig(2, false);
 		
-		TestPage1 initialPanel = new TestPage1();
+		TestPage2 initialPanel = new TestPage2();
 		Frame frame = new Frame("Window Title", "whatever.jpg", initialPanel);
 		
 	}
