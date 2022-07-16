@@ -8,11 +8,13 @@ import astral.components.visualComponents.Page;
 
 public class TestPage1 extends Page {
 
-	private CenteredTextButton exitButton;
 	private CenteredTextButton res1Button;
+	
 	private CenteredTextButton res2Button;
 
 	private CenteredTextButton page2Button;
+	
+	private CenteredTextButton exitButton;
 
 	public TestPage1() {
 

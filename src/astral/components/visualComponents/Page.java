@@ -24,7 +24,11 @@ public abstract class Page implements ActionListener {
 
 		this.bgUrl = bgUrl;
 
-		bg.setIcon(Resizer.resize(bgUrl, Frame.x, Frame.y));
+		try {
+			bg.setIcon(Resizer.resize(bgUrl, Frame.x, Frame.y));
+		} catch (NullPointerException e) {
+			bg.setIcon(Resizer.resize("astralBg1920x1080.png", Frame.x, Frame.y));
+		}
 		bg.setSize(Frame.x, Frame.y);
 
 	}

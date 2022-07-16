@@ -46,15 +46,26 @@ public class Frame {
 	public Frame(String windowTitle, String windowIconUrl, Page page) {
 		jFrame = new JFrame();
 
-		jFrame.setContentPane(new JLabel(Resizer.resize(page.getBgUrl(), Frame.x, Frame.y)));
-
+		try {
+			jFrame.setContentPane(new JLabel(Resizer.resize(page.getBgUrl(), Frame.x, Frame.y)));
+		} catch (NullPointerException e) {
+			jFrame.setContentPane(new JLabel(Resizer.resize("astralBg1920x1080.png", Frame.x, Frame.y)));
+		}
+		
 		jFrame.setSize(Frame.x, Frame.y);
 		jFrame.setMinimumSize(new Dimension(Frame.x, Frame.y));
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jFrame.setUndecorated(Frame.borderless);
 		jFrame.setVisible(true);
-		ImageIcon windowIcon = new ImageIcon(getClass().getClassLoader().getResource(windowIconUrl));
-		jFrame.setIconImage(windowIcon.getImage());
+		
+		try {
+			ImageIcon windowIcon = new ImageIcon(getClass().getClassLoader().getResource(windowIconUrl));
+			jFrame.setIconImage(windowIcon.getImage());
+		} catch (Exception e) {
+			ImageIcon windowIcon = new ImageIcon(getClass().getClassLoader().getResource("astralWindowIcon.jpg"));
+			jFrame.setIconImage(windowIcon.getImage());
+		}
+		
 		jFrame.setTitle(windowTitle);
 		jFrame.setResizable(false);
 		jFrame.pack();
