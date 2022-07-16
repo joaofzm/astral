@@ -2,7 +2,7 @@ package astral.component.interfaces;
 
 import javax.swing.JComponent;
 
-public interface Component {
+public interface VisualComponent {
 
 	JComponent getJComponent();
 

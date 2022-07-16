@@ -8,9 +8,9 @@ import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
-import astral.component.interfaces.Component;
+import astral.component.interfaces.VisualComponent;
 
-public class TextButton implements Component, MouseListener {
+public class TextButton implements VisualComponent, MouseListener {
 	
 	private int red;
 	private int green;

@@ -38,7 +38,6 @@ public class Frame {
 	//-------------------------------------------------------------------------------------
 
 	private JFrame jFrame;
-	
 	public JFrame getJFrame() {
 		return jFrame;
 	}

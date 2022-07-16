@@ -4,10 +4,10 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import astral.component.interfaces.Component;
+import astral.component.interfaces.VisualComponent;
 
 
-public class Panel implements Component {
+public class Panel implements VisualComponent {
 	private JPanel panel;
 	@Override
 	public JComponent getJComponent() {
@@ -20,7 +20,7 @@ public class Panel implements Component {
 		panel.setLayout(null);
 	}
 	
-	public void add(Component c) {
+	public void add(VisualComponent c) {
 		panel.add(c.getJComponent());
 	}
 	

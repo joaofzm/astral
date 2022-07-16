@@ -6,12 +6,12 @@ import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
-import astral.component.interfaces.Component;
+import astral.component.interfaces.VisualComponent;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class CenteredTextButton implements Component, MouseListener {
+public class CenteredTextButton implements VisualComponent, MouseListener {
 	
 	private int red;
 	private int green;

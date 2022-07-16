@@ -8,12 +8,13 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
-import astral.component.interfaces.Component;
+import astral.component.interfaces.VisualComponent;
 import astral.util.Resizer;
 
-public class ImageButton implements Component, MouseListener {
+public class ImageButton implements VisualComponent, MouseListener {
 	
 	private JButton jButton;
+	
 	@Override
 	public JButton getJComponent() {
 		return jButton;

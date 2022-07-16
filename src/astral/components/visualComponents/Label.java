@@ -9,9 +9,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import astral.component.interfaces.Component;
+import astral.component.interfaces.VisualComponent;
 
-public class Label implements Component {
+public class Label implements VisualComponent {
 
 	private JLabel jLabel;
 	@Override
