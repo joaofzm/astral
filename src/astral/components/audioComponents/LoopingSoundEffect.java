@@ -11,12 +11,15 @@ public class LoopingSoundEffect implements Runnable {
 	private int loops;
 
 	private int interval;
+	
+	private int volume;
 
-	public LoopingSoundEffect(String sfxURL, int loops, int interval) {
+	public LoopingSoundEffect(String sfxURL, int loops, int interval, int volume) {
 		soundEffectConverter = new SoundEffectConverter();
 		soundPath = sfxURL;
 		this.interval = interval;
 		this.loops = loops;
+		this.volume = volume;
 	}
 
 	@Override
@@ -25,7 +28,7 @@ public class LoopingSoundEffect implements Runnable {
 		// 0 equals to infinity loops
 		if (loops == 0) {
 			while (true) {
-				soundEffectConverter.setFile(soundPath);
+				soundEffectConverter.setFile(soundPath,volume);
 				soundEffectConverter.play();
 				try {
 					Thread.sleep(interval);
@@ -35,7 +38,7 @@ public class LoopingSoundEffect implements Runnable {
 			}
 		} else {
 			for (int i = 0; i < loops; i++) {
-				soundEffectConverter.setFile(soundPath);
+				soundEffectConverter.setFile(soundPath,volume);
 				soundEffectConverter.play();
 				try {
 					Thread.sleep(interval);

@@ -9,13 +9,14 @@ public class SoundEffectConverter {
 
 	private Clip clip;
 
-	public void setFile(String soundFileName) {
+	public void setFile(String soundFileName, int volumeAdjust) {
 		try {
 			AudioInputStream sound = AudioSystem.getAudioInputStream(getClass().getResource(soundFileName));
 			clip = AudioSystem.getClip();
 			clip.open(sound);
 			FloatControl volume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
-			volume.setValue(-15);
+			//Volume minimum value: -80 | maximum value 6.0206
+			volume.setValue(volumeAdjust);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

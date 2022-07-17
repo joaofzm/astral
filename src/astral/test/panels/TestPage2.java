@@ -56,12 +56,12 @@ public class TestPage2 extends Page {
 		}
 
 		else if (e.getSource() == monkeButton.getJComponent()) {
-			new Thread(new SoundEffect("/impact.wav")).start();
-
+			new Thread(new SoundEffect("/impact.wav",6)).start();
 		}
 
 		else if (e.getSource() == anotherButton.getJComponent()) {
-			new Thread(new LoopingSoundEffect("/impact.wav", 0, 300)).start();
+			new Thread(new SoundEffect("/impact.wav",0)).start();
+//			new Thread(new LoopingSoundEffect("/menu bgmusic.wav", 0, 192000,-15)).start();
 		}
 
 		else if (e.getSource() == exitButton.getJComponent()) {

@@ -6,14 +6,18 @@ public class SoundEffect implements Runnable {
 	
 	private String soundPath;
 	
-	public SoundEffect(String sfxURL) {
+	private int volume;
+	
+	public SoundEffect(String sfxURL, int volume) {
 		soundEffectConverter = new SoundEffectConverter();
 		soundPath = sfxURL;
+		this.volume = volume;
+
 	}
 
 	@Override
 	public void run() {
-		soundEffectConverter.setFile(soundPath);
+		soundEffectConverter.setFile(soundPath,volume);
 		soundEffectConverter.play();
 	}
 }
