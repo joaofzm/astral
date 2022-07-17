@@ -6,9 +6,9 @@ public class SoundEffect implements Runnable {
 	
 	private String soundPath;
 	
-	public SoundEffect(String sfxUrl) {
+	public SoundEffect(String sfxURL) {
 		soundEffectConverter = new SoundEffectConverter();
-		soundPath = sfxUrl;
+		soundPath = sfxURL;
 	}
 
 	@Override
