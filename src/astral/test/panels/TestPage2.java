@@ -4,11 +4,13 @@ import java.awt.event.ActionEvent;
 
 import astral.components.audioComponents.LoopingSoundEffect;
 import astral.components.audioComponents.SoundEffect;
+import astral.components.visualComponents.CentralizedPasswordField;
 import astral.components.visualComponents.CentralizedTextButton;
 import astral.components.visualComponents.CentralizedTextField;
 import astral.components.visualComponents.ImageButton;
 import astral.components.visualComponents.Label;
 import astral.components.visualComponents.Page;
+import astral.components.visualComponents.PasswordField;
 import astral.components.visualComponents.TextButton;
 import astral.components.visualComponents.TextField;
 
@@ -27,6 +29,10 @@ public class TestPage2 extends Page {
 	private TextField textField;
 	
 	private CentralizedTextField centralizedTextField;
+	
+	private PasswordField passwordField;
+	
+	private CentralizedPasswordField centralizedPasswordField;
 
 	public TestPage2() {
 		super("revolver.png");
@@ -53,6 +59,12 @@ public class TestPage2 extends Page {
 		textField = new TextField(20, 20, 200, 50, "batata", 22);
 		getPanel().add(textField);
 		
+		passwordField = new PasswordField(20, 120, 200, 50, "senha123", 22);
+		getPanel().add(passwordField);
+		
+		centralizedPasswordField = new CentralizedPasswordField(120, 200, 50, "senha12345", 22);
+		getPanel().add(centralizedPasswordField);
+
 		centralizedTextField = new CentralizedTextField(20, 200, 50, "jisadjisda", 22);
 		getPanel().add(centralizedTextField);
 		
@@ -77,6 +89,7 @@ public class TestPage2 extends Page {
 		}
 
 		else if (e.getSource() == exitButton.getJComponent()) {
+			new Thread(new SoundEffect("/impact.wav",-20)).start();
 			try {
 				Thread.sleep(900);
 			} catch (InterruptedException e1) {
