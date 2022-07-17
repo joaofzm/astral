@@ -45,6 +45,10 @@ public class Frame {
 	public Frame(String windowTitle, String windowIconUrl, Page page) {
 		jFrame = new JFrame();
 
+		/*
+		 If the user URL result in a NullPointer, the background will automatically be set
+		 as the Astral default one.
+		 */
 		try {
 			jFrame.setContentPane(new JLabel(Resizer.resize(page.getBgUrl(), Frame.x, Frame.y)));
 		} catch (NullPointerException e) {
@@ -57,12 +61,20 @@ public class Frame {
 		jFrame.setUndecorated(Frame.borderless);
 		jFrame.setVisible(true);
 		
-		try {
-			ImageIcon windowIcon = new ImageIcon(getClass().getClassLoader().getResource(windowIconUrl));
-			jFrame.setIconImage(windowIcon.getImage());
-		} catch (Exception e) {
-			ImageIcon windowIcon = new ImageIcon(getClass().getClassLoader().getResource("astralWindowIcon.jpg"));
-			jFrame.setIconImage(windowIcon.getImage());
+		/*
+		 If the user pass null as a parameter when instantiating a Frame, the window icon will not be set,
+		 and as a result the icon will be the default Java one.
+		 If the user passes one URL, but it results in a NullPointer, then the icon will be set as the
+		 Astral default one.
+		 */
+		if(windowIconUrl!=null) {
+			try {
+				ImageIcon windowIcon = new ImageIcon(getClass().getClassLoader().getResource(windowIconUrl));
+				jFrame.setIconImage(windowIcon.getImage());
+			} catch (Exception e) {
+				ImageIcon windowIcon = new ImageIcon(getClass().getClassLoader().getResource("astralWindowIcon.png"));
+				jFrame.setIconImage(windowIcon.getImage());
+			}
 		}
 		
 		jFrame.setTitle(windowTitle);

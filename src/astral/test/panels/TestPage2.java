@@ -24,6 +24,7 @@ public class TestPage2 extends Page {
 
 	public TestPage2() {
 		super("revolver.png");
+//		super("astralPinkBackground.png");
 
 		imageLabel = new Label(1250, 200, 500, 200, "galo.png");
 		getPanel().add(imageLabel);
@@ -56,12 +57,11 @@ public class TestPage2 extends Page {
 		}
 
 		else if (e.getSource() == monkeButton.getJComponent()) {
-			new Thread(new SoundEffect("/impact.wav",6)).start();
+			new Thread(new SoundEffect("/impact.wav",-20)).start();
 		}
 
 		else if (e.getSource() == anotherButton.getJComponent()) {
-			new Thread(new SoundEffect("/impact.wav",0)).start();
-//			new Thread(new LoopingSoundEffect("/menu bgmusic.wav", 0, 192000,-15)).start();
+			new Thread(new LoopingSoundEffect("/menu bgmusic.wav", 0, 192000,-15)).start();
 		}
 
 		else if (e.getSource() == exitButton.getJComponent()) {

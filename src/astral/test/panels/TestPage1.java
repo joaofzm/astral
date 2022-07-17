@@ -45,19 +45,19 @@ public class TestPage1 extends Page {
 			Frame frame = new Frame("Window Title", "windowIcon.jpg", initialPanel);
 		}
 
-		if (e.getSource() == res2Button.getJComponent()) {
+		else if (e.getSource() == res2Button.getJComponent()) {
 			Frame.setConfig(2, Frame.borderless);
 			getFrame().getJFrame().dispose();
 			TestPage1 initialPanel = new TestPage1();
 			Frame frame = new Frame("Window Title", "windowIcon.jpg", initialPanel);
 		}
 
-		if (e.getSource() == page2Button.getJComponent()) {
+		else if (e.getSource() == page2Button.getJComponent()) {
 			TestPage2 page2 = new TestPage2();
 			getFrame().switchPage(page2);
 		}
 
-		if (e.getSource() == exitButton.getJComponent()) {
+		else if (e.getSource() == exitButton.getJComponent()) {
 			try {
 				Thread.sleep(900);
 			} catch (InterruptedException e1) {

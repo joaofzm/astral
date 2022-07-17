@@ -8,9 +8,9 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Frame.setConfig(2, false);
-		
 		TestPage2 initialPanel = new TestPage2();
-		Frame frame = new Frame("Window Title", "revolver.png", initialPanel);
+		Frame frame = new Frame("Window Title", "galo.png", initialPanel);
+//		Frame frame = new Frame("Window Title", "astralYellowWindowIcon.png", initialPanel);
 		
 	}
 
