@@ -26,8 +26,6 @@ public class ImageButton implements VisualComponent, MouseListener {
 	private ImageIcon defaultImageIcon;
 	private ImageIcon hoverImageIcon;
 	
-	
-	
 	public ImageButton(double x, double y, double xSize, double ySize, boolean border,
 			String defaultImageURL, String hoverImageURL) {
 		
@@ -50,7 +48,29 @@ public class ImageButton implements VisualComponent, MouseListener {
 		jButton.setBorder(BorderFactory.createLineBorder(Color.white));
 		jButton.setBorderPainted(border);
 	}
+	
+	public ImageButton(double y, double xSize, double ySize, boolean border,
+			String defaultImageURL, String hoverImageURL) {
+		
+		this.xSize=xSize;
+		this.ySize=ySize;
+		defaultImageIcon=Resizer.resize(defaultImageURL, (int) (xSize * Frame.multiplier), (int) (ySize * Frame.multiplier));
+		hoverImageIcon=Resizer.resize(hoverImageURL, (int) (xSize * Frame.multiplier), (int) (ySize * Frame.multiplier));
+		
+		jButton = new JButton();
+		jButton.addMouseListener(this);
+		
+		jButton.setBounds((int) (((1920 - xSize) / 2) * Frame.multiplier), (int) (y * Frame.multiplier),
+				(int) (xSize * Frame.multiplier), (int) (ySize * Frame.multiplier));
+		
+		jButton.setContentAreaFilled(false);
 
+		jButton.setIcon(Resizer.resize(defaultImageURL, (int) (xSize * Frame.multiplier), (int) (ySize * Frame.multiplier)));
+		jButton.setFocusable(false);
+
+		jButton.setBorder(BorderFactory.createLineBorder(Color.white));
+		jButton.setBorderPainted(border);
+	}
 	
 	public void setVisible(boolean value) {
 		getJComponent().setVisible(value);

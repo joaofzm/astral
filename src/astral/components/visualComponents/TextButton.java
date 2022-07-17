@@ -54,6 +54,36 @@ public class TextButton implements VisualComponent, MouseListener {
 		
 
 	}
+	
+	public TextButton(double y, double xSize, double ySize, String text, int fontSize,
+			int red, int green, int blue, int hoverRed, int hoverGreen, int hoverBlue, boolean border) {
+		
+		this.red = red;
+		this.green = green;
+		this.blue = blue;
+		this.hoverRed = hoverRed;
+		this.hoverGreen = hoverGreen;
+		this.hoverBlue = hoverBlue;
+		
+		jButton = new JButton();
+		jButton.addMouseListener(this);
+		
+		
+		jButton.setBounds((int) (((1920 - xSize) / 2) * Frame.multiplier), (int) (y * Frame.multiplier),
+				(int) (xSize * Frame.multiplier), (int) (ySize * Frame.multiplier));
+		
+		jButton.setContentAreaFilled(false);
+		
+		jButton.setText(text);
+		jButton.setForeground(new Color(red, green, blue));
+		jButton.setFont(new Font("Impact", Font.PLAIN, (int) (fontSize * Frame.multiplier)));
+		jButton.setFocusable(false);
+	
+		jButton.setBorder(BorderFactory.createLineBorder(Color.white));
+		jButton.setBorderPainted(border);
+		
+
+	}
 
 	
 	public void setVisible(boolean value) {
