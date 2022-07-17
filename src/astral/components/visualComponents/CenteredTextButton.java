@@ -6,7 +6,7 @@ import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
-import astral.component.interfaces.VisualComponent;
+import astral.components.visualComponents.interfaces.VisualComponent;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

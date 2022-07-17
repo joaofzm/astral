@@ -8,7 +8,7 @@ import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
-import astral.component.interfaces.VisualComponent;
+import astral.components.visualComponents.interfaces.VisualComponent;
 
 public class TextButton implements VisualComponent, MouseListener {
 	

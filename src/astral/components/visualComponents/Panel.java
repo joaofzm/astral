@@ -4,7 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-import astral.component.interfaces.VisualComponent;
+import astral.components.visualComponents.interfaces.VisualComponent;
 
 
 public class Panel implements VisualComponent {

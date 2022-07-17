@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
-import astral.component.interfaces.VisualComponent;
+import astral.components.visualComponents.interfaces.VisualComponent;
 
 public class Label implements VisualComponent {
 

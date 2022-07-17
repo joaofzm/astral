@@ -2,6 +2,7 @@ package astral.test.panels;
 
 import java.awt.event.ActionEvent;
 
+import astral.components.audioComponents.SoundEffect;
 import astral.components.visualComponents.CenteredTextButton;
 import astral.components.visualComponents.ImageButton;
 import astral.components.visualComponents.Label;
@@ -49,27 +50,22 @@ public class TestPage2 extends Page {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		
 		if (e.getSource() == page1Button.getJComponent()) {
 			TestPage1 page1 = new TestPage1();
 			getFrame().switchPage(page1);
 		}
 		
-		if (e.getSource() == monkeButton.getJComponent()) {
-			try {
-				Thread.sleep(900);
-			} catch (InterruptedException e1) {
-				e1.printStackTrace();
-			}
-			System.exit(0);
+		else if (e.getSource() == monkeButton.getJComponent()) {
+			new Thread(new SoundEffect("/impact.wav")).start();
+
 		}
 		
-		if (e.getSource() == anotherButton.getJComponent()) {
+		else if (e.getSource() == anotherButton.getJComponent()) {
 			TestPage1 page1 = new TestPage1();
 			getFrame().switchPage(page1);
 		}
 
-		if (e.getSource() == exitButton.getJComponent()) {
+		else if (e.getSource() == exitButton.getJComponent()) {
 			try {
 				Thread.sleep(900);
 			} catch (InterruptedException e1) {
