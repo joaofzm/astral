@@ -11,7 +11,7 @@ import astral.components.visualComponents.interfaces.VisualComponent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class CenteredTextButton implements VisualComponent, MouseListener {
+public class CentralizedTextButton implements VisualComponent, MouseListener {
 	
 	private int red;
 	private int green;
@@ -27,7 +27,7 @@ public class CenteredTextButton implements VisualComponent, MouseListener {
 		return jButton;
 	}
 	
-	public CenteredTextButton(double y, double xSize, double ySize, String text, int fontSize,
+	public CentralizedTextButton(double y, double xSize, double ySize, String text, int fontSize,
 			int red, int green, int blue, int hoverRed, int hoverGreen, int hoverBlue, boolean border) {
 		
 		this.red = red;

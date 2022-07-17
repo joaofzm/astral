@@ -4,16 +4,18 @@ import java.awt.event.ActionEvent;
 
 import astral.components.audioComponents.LoopingSoundEffect;
 import astral.components.audioComponents.SoundEffect;
-import astral.components.visualComponents.CenteredTextButton;
+import astral.components.visualComponents.CentralizedTextButton;
+import astral.components.visualComponents.CentralizedTextField;
 import astral.components.visualComponents.ImageButton;
 import astral.components.visualComponents.Label;
 import astral.components.visualComponents.Page;
 import astral.components.visualComponents.TextButton;
+import astral.components.visualComponents.TextField;
 
 public class TestPage2 extends Page {
 
-	private CenteredTextButton exitButton;
-	private CenteredTextButton page1Button;
+	private CentralizedTextButton exitButton;
+	private CentralizedTextButton page1Button;
 
 	private TextButton anotherButton;
 
@@ -21,6 +23,10 @@ public class TestPage2 extends Page {
 	private Label textLabel;
 
 	private ImageButton monkeButton;
+	
+	private TextField textField;
+	
+	private CentralizedTextField centralizedTextField;
 
 	public TestPage2() {
 		super("revolver.png");
@@ -32,10 +38,10 @@ public class TestPage2 extends Page {
 		textLabel = new Label(1000, 800, 500, 200, "GALO", 72, 255, 255, 200, false);
 		getPanel().add(textLabel);
 
-		exitButton = new CenteredTextButton(850, 100, 62, "Exit", 62, 50, 50, 255, 0, 0, 0, true);
+		exitButton = new CentralizedTextButton(850, 100, 62, "Exit", 62, 50, 50, 255, 0, 0, 0, true);
 		getPanel().add(exitButton, this);
 
-		page1Button = new CenteredTextButton(450, 180, 62, "PAGE 1", 62, 255, 255, 255, 255, 0, 0, false);
+		page1Button = new CentralizedTextButton(450, 180, 62, "PAGE 1", 62, 255, 255, 255, 255, 0, 0, false);
 		getPanel().add(page1Button, this);
 
 		anotherButton = new TextButton(1000, 250, 180, 62, "ABC", 62, 255, 0, 0, 0, 0, 0, true);
@@ -44,6 +50,12 @@ public class TestPage2 extends Page {
 		monkeButton = new ImageButton(100, 100, 300, 300, true, "mrv.png", "monke.png");
 		getPanel().add(monkeButton, this);
 
+		textField = new TextField(20, 20, 200, 50, "batata", 22);
+		getPanel().add(textField);
+		
+		centralizedTextField = new CentralizedTextField(20, 200, 50, "jisadjisda", 22);
+		getPanel().add(centralizedTextField);
+		
 		addBackground();
 
 	}

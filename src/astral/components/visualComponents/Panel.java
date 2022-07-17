@@ -34,7 +34,7 @@ public class Panel implements VisualComponent {
 		c.getJComponent().addActionListener(p);
 	}
 	
-	public void add(CenteredTextButton c, Page p) {
+	public void add(CentralizedTextButton c, Page p) {
 		panel.add(c.getJComponent());
 		c.getJComponent().addActionListener(p);
 	}
