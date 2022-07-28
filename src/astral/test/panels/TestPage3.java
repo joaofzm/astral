@@ -12,37 +12,28 @@ import astral.components.visualComponents.Page;
 import astral.components.visualComponents.PasswordField;
 import astral.components.visualComponents.TextButton;
 import astral.components.visualComponents.TextField;
+import astral.components.visualComponents.ToggleButton;
 
-public class TestPage2 extends Page {
+public class TestPage3 extends Page {
 
 	private TextButton exitButton;
+	
 	private TextButton page1Button;
 
 	private TextButton anotherButton;
 
-	private Label imageLabel;
-	private Label textLabel;
-
 	private ImageButton monkeButton;
 	
-	private TextField textField;
-	
-	private TextField centralizedTextField;
-	
-	private PasswordField passwordField;
-	
-	private PasswordField centralizedPasswordField;
-	
-	private CheckBox checkBox;
-	
 	private ComboBox comboBox;
+	
+	private ToggleButton toggleButton;
 
-	public TestPage2() {
-		super("revolver.png");
+	public TestPage3() {
+		super("yusaku.png");
 		
-		getPanel().add(imageLabel = new Label(1250, 200, 500, 200, "galo.png"));
+		getPanel().add(new Label(1250, 200, 500, 200, "galo.png"));
 
-		getPanel().add(textLabel = new Label(1000, 800, 500, 200, "GALO", 72, 255, 255, 200, false));
+		getPanel().add(new Label(1000, 800, 500, 200, "GALO", 72, 255, 255, 200, false));
 
 		getPanel().add(exitButton = new TextButton(850, 100, 62, "Exit", 62, 50, 50, 255, 0, 0, 0, true), this);
 
@@ -52,17 +43,19 @@ public class TestPage2 extends Page {
 
 		getPanel().add(monkeButton = new ImageButton(100, 100, 300, 300, true, "mrv.png", "monke.png"), this);
 
-		getPanel().add(textField = new TextField(20, 20, 200, 50, "batata", 22));
+		getPanel().add(new TextField(20, 20, 200, 50, "batata", 22));
 		
-		getPanel().add(passwordField = new PasswordField(20, 120, 200, 50, "senha123", 22));
+		getPanel().add(new PasswordField(20, 120, 200, 50, "senha123", 22));
 		
-		getPanel().add(centralizedPasswordField = new PasswordField(120, 200, 50, "senha12345", 22));
+		getPanel().add(new PasswordField(120, 200, 50, "senha12345", 22));
 
-		getPanel().add(centralizedTextField = new TextField(20, 200, 50, "jisadjisda", 22));
+		getPanel().add(new TextField(20, 200, 50, "jisadjisda", 22));
 		
-		getPanel().add(checkBox = new CheckBox(1000, 180, 150, 50, "CHECK", 200, 0, 0,50, 50, 50, 33));
+		getPanel().add(new CheckBox(1000, 180, 150, 50, "CHECK", 200, 0, 0,50, 50, 50, 33));
 		
-		getPanel().add(comboBox = new ComboBox(1300, 180, 150, 80, "COMBO", 200, 50, 50,50, 50, 200, 33));
+		getPanel().add(toggleButton = new ToggleButton(1600, 180, 150, 50, "BUTT", 200, 0, 0,50, 200, 50, 33),this);
+		
+		getPanel().add(comboBox = new ComboBox(1300, 180, 150, 80, "COMBO", 200, 50, 50,50, 255, 200, 33));
 		comboBox.getJComponent().addItem("Item 1");
 		comboBox.getJComponent().addItem("Item 2");
 		comboBox.getJComponent().addItem("Item 3");
@@ -78,6 +71,14 @@ public class TestPage2 extends Page {
 		if (e.getSource() == page1Button.getJComponent()) {
 			TestPage1 page1 = new TestPage1();
 			getFrame().switchPage(page1);
+		}
+		
+		else if (e.getSource() == toggleButton.getJComponent()) {
+			if (toggleButton.getJComponent().isSelected()) {
+				new Thread(new SoundEffect("/impact.wav",-20)).start();
+			} else {
+				new Thread(new LoopingSoundEffect("/impact.wav", 5,500,-15)).start();
+			}
 		}
 
 		else if (e.getSource() == monkeButton.getJComponent()) {

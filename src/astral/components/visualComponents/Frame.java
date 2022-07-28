@@ -12,12 +12,12 @@ import astral.util.Resizer;
 public class Frame {
 	
 	//-------------------------------------------------------------------------------------
-	public static int res = 1;
-	public static boolean borderless = true;
+	public static int res = 3;
+	public static boolean borderless = false;
 	
-	public static int x = 1920;
-	public static int y = 1080;
-	public static double multiplier = 1;
+	public static int x = 1280;
+	public static int y = 720;
+	public static double multiplier = 0.666666666666666666666666;
 	
 	public static void setConfig(int res, boolean border) {
 		borderless = border;

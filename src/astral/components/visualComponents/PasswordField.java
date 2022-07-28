@@ -5,9 +5,7 @@ import java.awt.Font;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 
 import astral.components.visualComponents.interfaces.VisualComponent;
 

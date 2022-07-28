@@ -1,7 +1,5 @@
 package astral.components.audioComponents;
 
-import java.util.Iterator;
-
 public class LoopingSoundEffect implements Runnable {
 
 	private SoundEffectConverter soundEffectConverter;

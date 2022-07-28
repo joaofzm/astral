@@ -28,6 +28,11 @@ public class Panel implements VisualComponent {
 		c.getJComponent().addActionListener(p);
 	}
 	
+	public void add(ToggleButton c, Page p) {
+		panel.add(c.getJComponent());
+		c.getJComponent().addActionListener(p);
+	}
+	
 	public void add(ImageButton c, Page p) {
 		panel.add(c.getJComponent());
 		c.getJComponent().addActionListener(p);
