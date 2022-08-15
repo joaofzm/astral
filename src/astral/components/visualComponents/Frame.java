@@ -19,17 +19,20 @@ public class Frame {
 	public static int y = 720;
 	public static double multiplier = 0.666666666666666666666666;
 	
-	public static void setConfig(int res, boolean border) {
+	public static void setConfig(int resolution, boolean border) {
 		borderless = border;
-		if (res==1) {
+		if (resolution==1) {
+			res = resolution;
 			multiplier=1;
 			x=1920;
 			y=1080;
-		} else if (res==2) {
+		} else if (resolution==2) {
+			res = resolution;
 			multiplier=0.933333335;
 			x=1792;
 			y=1008;
-		} else if (res==3) {
+		} else if (resolution==3) {
+			res = resolution;
 			multiplier=0.666666666666666666666666;
 			x=1280;
 			y=720;
@@ -42,7 +45,7 @@ public class Frame {
 		return jFrame;
 	}
 
-	public Frame(String windowTitle, String windowIconUrl, Page page) {
+	public Frame(String windowTitle, String windowIconUrl, Page page, boolean centeredOnScreen) {
 		jFrame = new JFrame();
 
 		/*
@@ -59,6 +62,9 @@ public class Frame {
 		jFrame.setMinimumSize(new Dimension(Frame.x, Frame.y));
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jFrame.setUndecorated(Frame.borderless);
+		if (centeredOnScreen) {
+			jFrame.setLocationRelativeTo(null);
+		}
 		jFrame.setVisible(true);
 		
 		/*
@@ -91,6 +97,10 @@ public class Frame {
 		page.setFrame(this);
 		page.getPanel().getJComponent().repaint();
 
+	}
+	
+	public void dispose() {
+		jFrame.dispose();
 	}
 	
 	public void switchPage(Page page) {

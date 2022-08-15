@@ -9,7 +9,7 @@ public class Main {
 		
 		Frame.setConfig(2, false);
 		TestPage3 initialPanel = new TestPage3();
-		Frame frame = new Frame("Window Title", "galo.png", initialPanel);
+		Frame frame = new Frame("Window Title", "galo.png", initialPanel, true);
 		
 	}
 

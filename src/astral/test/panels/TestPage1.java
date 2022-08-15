@@ -42,14 +42,14 @@ public class TestPage1 extends Page {
 			Frame.setConfig(1, Frame.borderless);
 			getFrame().getJFrame().dispose();
 			TestPage1 initialPanel = new TestPage1();
-			Frame frame = new Frame("Window Title", "windowIcon.jpg", initialPanel);
+			Frame frame = new Frame("Window Title", "windowIcon.jpg", initialPanel,false);
 		}
 
 		else if (e.getSource() == res2Button.getJComponent()) {
 			Frame.setConfig(2, Frame.borderless);
 			getFrame().getJFrame().dispose();
 			TestPage1 initialPanel = new TestPage1();
-			Frame frame = new Frame("Window Title", "windowIcon.jpg", initialPanel);
+			Frame frame = new Frame("Window Title", "windowIcon.jpg", initialPanel,false);
 		}
 
 		else if (e.getSource() == page2Button.getJComponent()) {
