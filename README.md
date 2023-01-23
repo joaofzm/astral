@@ -1,5 +1,5 @@
 # Astral
-# Ver. 1.1
+# Current version: 1.1
 
 **Astral**
 - Astral is a Java GUI library built on top of Java SWING.
